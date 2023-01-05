@@ -4,29 +4,34 @@
 <head>
   <meta charset="UTF-8">
   <title>User Form</title>
-  <h2>User Form</h2>
 </head>
 
 <body>
+<h2>User Form</h2>
+
+<br>
 
 <form th:method="POST" th:action="@{/newUser}" th:object="${user}">
 
   <label for="name">Enter Name: </label>
   <input type="text" th:field="*{firstName}" id="name">
 
-  <br> <br/>
+  <br>
 
   <label for="lastName">Enter Surname: </label>
   <input type="text" th:field="*{lastName}" id="lastName">
 
-  <br> <br/>
+  <br>
 
   <label for="position">Enter Position: </label>
   <input type="text" th:field="*{position}" id="position">
 
-  <br> <br/>
+  <br>
 
   <input type="submit" value="Add User"/>
+
+  <br>
+
   <input type ="button" value="List of all Users"
          onclick="window.location.href = 'users'"/>
 </form>

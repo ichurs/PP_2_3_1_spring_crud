@@ -3,10 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>View User</title>
-  <h2>View User</h2>
 </head>
 <body>
-<br/>
+<h2>View User</h2>
+
+<br>
+
 <div th:if="${user}">
   <table th:border="1">
     <tr>
@@ -26,12 +28,15 @@
       <td th:utext="${user.position}">...</td>
     </tr>
   </table>
-  <br/><br/>
+
+  <br>
 
   <button>
     <a th:href="@{{id}/edit (id=${user.getId()})}">Edit User</a>
   </button>
-  <br/><br/>
+
+  <br>
+
   <button>
     <a th:href="@{/users}">Back to User List</a>
   </button>

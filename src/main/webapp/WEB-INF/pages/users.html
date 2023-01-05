@@ -4,18 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <title>Users</title>
-  <h2>List of all users</h2>
 </head>
 
 <body>
+<h2>List of all users</h2>
+
+<br>
+
 <table th:border="1">
   <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>LastName</th>
-    <th>Position</th>
-    <th>Action</th>
+    <th th:width="30">Id</th>
+    <th th:width="120">First Name</th>
+    <th th:width="120">Last Name</th>
+    <th th:width="120">Position</th>
+    <th th:width="120">Action</th>
   </tr>
+
   <tr th:each = "user : ${users}">
 
     <td th:utext="${user.id}">
@@ -26,15 +30,12 @@
       <button>
         <a th:href="@{/users/{id}(id=${user.getId()})}" th:utext="View">...</a>
       </button>
-
       <button>
         <a th:href="@{/users/{id}/edit(id=${user.getId()})}" th:utext="Edit">...</a>
       </button>
-
       <form th:method="DElETE" th:action="@{/users/{id}(id=${user.getId()})}">
         <input type="submit" value="Delete">
       </form>
-
     </td>
   </tr>
 </table>

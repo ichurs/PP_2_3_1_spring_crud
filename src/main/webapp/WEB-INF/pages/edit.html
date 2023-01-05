@@ -4,33 +4,34 @@
   <head>
     <meta charset="UTF-8">
     <title>Edit Page</title>
-    <h2>Edit User's Data</h2>
   </head>
   <body>
+  <h2>Edit User's Data</h2>
+  <br>
+
   <form th:method="PATCH" th:action="@{/users/{id}/edit (id=${user.getId})}" th:object="${user}">
 
     <label for="firstName">Enter Name: </label>
     <input type="text" th:field="*{firstName}" id="firstName">
 
-    <br> <br/>
+    <br>
 
     <label for="lastName">Enter Surname: </label>
     <input type="text" th:field="*{lastName}" id="lastName">
 
-    <br> <br/>
-
+    <br>
 
     <label for="position">Enter Position: </label>
     <input type="text" th:field="*{position}" id="position">
 
-    <br> <br/>
+    <br>
 
     <input type="submit" value="Update User"/>
 
-    <br> <br/>
+    <br>
 
     <button>
-      <a th:href="@{/users}">Back to User List</a>
+      <a th:href="@{/users}">Back to list of users</a>
     </button>
 
   </form>
