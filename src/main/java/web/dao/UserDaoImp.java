@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -17,21 +16,18 @@ public class UserDaoImp implements UserDao{
     Logger logger = Logger.getLogger(UserDaoImp.class.getName());
 
     @Override
-    @Transactional
     public void addUser(User user) {
         entityManager.persist(user);
         logger.info("User with ID: " + user.getId() + " successfully added.");
     }
 
     @Override
-    @Transactional
     public User getUserById(int id) {
         User user = entityManager.find(User.class, id);
         return user;
     }
 
     @Override
-    @Transactional
     public void updateUser(int id, User user) {
         getUserById(id);
         entityManager.merge(user);
@@ -39,7 +35,6 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    @Transactional
     public void removeUser(int id) {
         User user = getUserById(id);
         if (user != null) {
@@ -49,7 +44,6 @@ public class UserDaoImp implements UserDao{
     }
 
     @Override
-    @Transactional
     public List<User> listUsers() {
         TypedQuery<User> query = entityManager.createQuery("SELECT user FROM User user", User.class);
         return query.getResultList();
